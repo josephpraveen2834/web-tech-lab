@@ -1,22 +1,28 @@
-var app1 = angular.module('form', []);
-app1.controller('validateCtrl', function($scope) {
-    $scope.reg = 'URK20CS2172';
-    $scope.email = 'rahul@gmail.com';
-    $scope.name = 'Rahul';
+var http = require('http');
+const fs = require('fs');
+const server = http.createServer(function(req, res) {
+    if (req.url === '/') {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        fs.createReadStream('./exp10.html').pipe(res);
+    } else if (req.url === '/form' && req.method == 'POST') {
+        var rawData = '';
+        req.on('data', function(data) {
+            rawData += data;
+        })
+        req.on('end', function() {
+            var inputdata = new URLSearchParams(rawData);
+            res.writeHead(200, { "Content-Type": "text/html" });
+            res.write('Name: ' + inputdata.get('name') + '<br><br>');
+            res.write('RegNo: ' + inputdata.get('reg') + '<br><br>');
+            res.write('Year of Study: ' + inputdata.get('year') + '<br><br>');
+            res.write('Department: ' + inputdata.get('dept') + '<br><br>');
+            res.write('School: ' + inputdata.get('school') + '<br><br>');
+            res.write('Type of event: ' + inputdata.getAll('event[]') + '<br><br>');
+            res.end();
+        });
+    }
 });
 
-var app2 = angular.module("myapp", ["ngRoute"]);
-app2.controller("myctrl", ($scope) => {
-
-
-});
-
-app2.config(function($routeProvider) {
-    $routeProvider.when('/URK20CS2172', {
-        templateUrl: './student1.html'
-    }).when('/URK20AI1072', {
-        templateUrl: './student2.html'
-    }).when('/URK20RA2002', {
-        templateUrl: './student3.html'
-    }).otherwise({ redirectTo: '/' })
+server.listen(2122, function() {
+    console.log('listening at 2122...')
 });
