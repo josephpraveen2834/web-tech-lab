@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URK20CS2122</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url(data:image/jpeg;base64,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);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center p-5 text-bg-success">JAVASCRIPT DOM ELEMENTS AND EVENTS</h1>
+    <br>
+    <section>
+        <h3 class="text-center text-white bg mt-5">1. Shortest And Longest Word</h3>
+        <div class="container col-sm-6 mt-5">
+            <label for="t1" class="form-label text-white">Enter a String</label>
+            <input type="text" id="lgth" class="form-control">
+            <div class="text-center ">
+                <button class="btn btn-outline-primary mt-5" onclick="length()">Submit</button>
+            </div>
+            <h5 id="otpt" class="text-center text-primary mt-5 mb-5"></h5>
+        </div>
+
+    </section>
+
+    <section>
+        <h3 class="text-center text-white bg mt-5">2. BMI Calculator</h3>
+        <div class="container col-sm-3 mt-5">
+            <label for="t3" class="form-label text-white mt-4">Enter Weight</label>
+            <input type="text" id="w" class="form-control">
+            <br>
+            <label for="t2" class="form-label text-white">Enter Height(metres)</label>
+            <input type="text" id="h" class="form-control">
+
+            <div class="text-center ">
+                <button class="btn btn-outline-primary mt-5" onclick="bmi()">Submit</button>
+            </div>
+
+            <h5 id="result2" class="text-center text-primary mt-5 mb-5"></h5>
+        </div>
+
+
+    </section>
+
+    <section>
+        <h3 class="text-center text-white bg mt-5">3. Fruit Farm</h3>
+        <div class="container col-sm-3 mt-5">
+            <label for="height" class="form-label text-white">Height:</label>
+            <input type="text" id="height" class="form-control"><br>
+            <label for="width" class="form-label text-white ">Width:</label>
+            <input type="text" id="width" class="form-control">
+            <div class="text-center ">
+                <button class="btn btn-outline-primary mt-5 mb-5" onclick="fruit()">Submit</button>
+            </div>
+        </div>
+        <h5 id="garden" class="text-center mb-5"></h5>
+
+    </section>
+
+    <section id="Q4">
+        <h3 class="text-center text-white bg mt-5">4. Currency Converter</h3>
+        <div class="container col-sm-3 mt-5">
+
+            <label for="value" class="form-label text-white ">Enter Value</label>
+            <input type="text" id="value" class="form-control">
+            <br>
+            <label for="from" class="form-label text-white">Choose From</label>
+            <select id="from" class="form-select">
+                            <option value="INR" selected>INR</option>
+                            <option value="USD">USD</option>                    
+                        </select>
+            <br>
+
+            <label for="to" class="form-label text-white mt-3">Convert To</label>
+            <select id="to" class="form-select">
+                            <option value="USD" selected>USD</option>
+                            <option value="INR">INR</option>                    
+                        </select>
+
+
+            <div class="text-center ">
+                <button class="btn btn-outline-warning mt-5 mb-5" onclick="convert()">Convert</button>
+            </div>
+        </div>
+        <h5 id="convertedValue" class="text-center text-warning mb-5"></h5>
+
+    </section>
+
+    <section id="Q5">
+        <h3 class="text-center text-white bg mt-5">5. Coin Flip</h3>
+        <div class="container col-sm-3 mt-5">
+            <div class="text-center">
+                <button class="btn btn-outline-primary btn-lg mb-5" onclick="flip()">Flip</button>
+            </div>
+        </div>
+        <div class="text-center mb-5" id="coin"></div>
+        <h5 id="count" class="text-center text-primary"></h5>
+
+    </section>
+
+    <section id="Q6">
+        <h3 class="text-center text-white bg mt-5">6. Cake Order Form</h3>
+        <div class="container col-sm-3 mt-5">
+            <label for="cake" class="form-label text-white">Choose Cake</label>
+            <select id="cake" class="form-select">
+                            <option value="Small" selected>Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>                    
+                        </select>
+
+            <label for="tip" class="form-label text-white mt-3">Choose Tip</label>
+            <select id="tip" class="form-select">
+                    <option value="0" selected>None</option>
+                    <option value="10">10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>                    
+                </select>
+            <div class="text-center">
+                <button class="btn btn-outline-primary mt-5 mb-5" onclick="cake()">Calculate Order</button>
+            </div>
+        </div>
+        <h5 id="cost" class="text-center text-warning mb-5"></h5>
+
+    </section>
+
+    <script src="logic.js"></script>
+</body>
+
+</html>
